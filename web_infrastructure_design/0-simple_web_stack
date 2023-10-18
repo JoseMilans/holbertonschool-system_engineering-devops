@@ -1,0 +1,49 @@
+# Simple web stack
+
+## Diagram:
+A simple web infrastructure:
+
+<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/3e15ee3f-57ae-4b7f-a19a-b7d88361b304" id="DT-Ej4IVQv_Y"></iframe></div>
+
+## Components:
+
+1. **Client interaction**: 
+   - When someone enters a website address (www.foobar.com) in the browser, the request starts from his computer, which acts as the client.
+   - Then the cliente initiates the request to access a web service, and the browser is the tool he use to access the internet.
+
+2. **DNS server**:
+   - The website address he enters is human-readable, but machines communicate using IP addresses.
+   - A DNS server helps convert this domain (www.foobar.com) into an IP address (8.8.8.8).
+   - Then we could describe a server as a powerful computer that stores website files and handles requests from clients. Serves website content to users. It has a unique IP address.
+
+3. **Reaching the server**: 
+   - Once the IP address is determined, his request is sent over the internet.
+   - This vast network, the internet, transmits data globally (data packets between the client and the server).
+   - His request eventually reaches the target server (in our case with IP 8.8.8.8). This is where the website's data is stored.
+
+4. **Web server & application server interaction**: 
+   - Upon reaching the server, the request first interacts with the web server (Nginx).
+   - This web server then communicates with an application server which handles the logic of the website. This is where the actual processing of his request happens.
+   - Then we could describe a web server as a software installed on the server responsible for accepting and processing requests from the web browser. It fetches the requested website data and sends it back to the browser.
+   - And what about an application server? Is a server that handles the logic of a website, like processing form data or user authentication. It executes specific tasks and functions as demanded by the website's code.
+
+5. **Database interaction**: 
+   - Most dynamic websites store data in a database. In our scenario, the database in use is MySQL.
+   - The application server interacts with this database to get or store data based on his request.
+   - Then we could describe a database as a structured storage system for the website's data, like user profiles or blog posts. It stores, retrieves and manages data for the website.
+
+6. **Displaying the result**: 
+   - Once the application server processes the request, it sends back the relevant data to his browser.
+   - His web browser then displays this data, showing the website he wanted to access.
+
+7. **Application files/Codebase**: 
+   - The actual code and assets (like images or stylesheets) of a website.
+   - Defines the structure, appearance and functionality of a website.
+
+## Issues with this infrastructure:
+
+i. **SPOF (Single Point Of Failure)**: If any part of his single server setup fails (like the database, web server or hardware issues), the entire website becomes inaccessible (offline).
+
+ii. **Maintenance downtime**: Deploying new code or updates might require restarting services, like the web server. During these restarts, the website might not be accessible, leading to downtime.
+
+iii. **Scaling issues**: If our website becomes popular and gets a lot of traffic, a single server setup might not handle the load. This can lead to slow response times or the website crashing (total unavailability).
